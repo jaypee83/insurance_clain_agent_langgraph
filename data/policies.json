@@ -1,0 +1,44 @@
+[
+  {
+    "policy_id": "HLT-1001", "holder_name": "Priya Sharma", "policy_type": "health", "status": "active",
+    "start_date": "2025-04-01", "end_date": "2027-03-31", "premium_paid": true,
+    "sum_insured": 500000, "deductible": 5000, "prior_claims_12m": 0,
+    "covered_perils": ["hospitalisation", "accident", "illness", "day-care procedure"],
+    "exclusions": ["cosmetic surgery", "self-inflicted injury", "experimental treatment", "substance abuse"]
+  },
+  {
+    "policy_id": "MTR-2002", "holder_name": "Karan Patel", "policy_type": "motor", "status": "active",
+    "start_date": "2026-01-15", "end_date": "2027-01-14", "premium_paid": true,
+    "sum_insured": 800000, "deductible": 2500, "prior_claims_12m": 0,
+    "covered_perils": ["accident", "theft", "fire", "flood"],
+    "exclusions": ["drunk driving", "racing", "wear and tear", "unlicensed driver"]
+  },
+  {
+    "policy_id": "HLT-1003", "holder_name": "Vikram Singh", "policy_type": "health", "status": "active",
+    "start_date": "2026-09-05", "end_date": "2027-09-04", "premium_paid": true,
+    "sum_insured": 500000, "deductible": 5000, "prior_claims_12m": 2,
+    "covered_perils": ["hospitalisation", "accident", "illness", "day-care procedure"],
+    "exclusions": ["cosmetic surgery", "self-inflicted injury", "experimental treatment", "substance abuse"]
+  },
+  {
+    "policy_id": "HLT-1004", "holder_name": "Sunita Reddy", "policy_type": "health", "status": "lapsed",
+    "start_date": "2025-07-01", "end_date": "2026-06-30", "premium_paid": false,
+    "sum_insured": 300000, "deductible": 5000, "prior_claims_12m": 1,
+    "covered_perils": ["hospitalisation", "accident", "illness"],
+    "exclusions": ["cosmetic surgery", "self-inflicted injury", "experimental treatment"]
+  },
+  {
+    "policy_id": "PRP-3005", "holder_name": "Deepak Joshi", "policy_type": "property", "status": "active",
+    "start_date": "2024-11-01", "end_date": "2026-10-31", "premium_paid": true,
+    "sum_insured": 5000000, "deductible": 25000, "prior_claims_12m": 0,
+    "covered_perils": ["fire", "flood", "earthquake", "burglary", "lightning"],
+    "exclusions": ["war", "wear and tear", "intentional damage", "unoccupied over 60 days"]
+  },
+  {
+    "policy_id": "MTR-2006", "holder_name": "Neha Kapoor", "policy_type": "motor", "status": "active",
+    "start_date": "2025-12-01", "end_date": "2026-11-30", "premium_paid": true,
+    "sum_insured": 650000, "deductible": 2500, "prior_claims_12m": 0,
+    "covered_perils": ["accident", "theft", "fire", "flood"],
+    "exclusions": ["drunk driving", "racing", "wear and tear", "unlicensed driver"]
+  }
+]

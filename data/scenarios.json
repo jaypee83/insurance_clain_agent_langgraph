@@ -1,0 +1,99 @@
+[
+  {
+    "title": "1. Complete claim with valid documents",
+    "expected": "auto_approve",
+    "claim": {
+      "claim_id": "CLM-001", "policy_id": "HLT-1001", "claimant_name": "Priya Sharma", "claim_type": "health",
+      "incident_type": "hospitalisation", "incident_date": "2026-08-20", "report_date": "2026-08-28",
+      "claimed_amount": 85400,
+      "description": "Admitted to City Care Hospital for 4 days with dengue fever. Treated and discharged in stable condition.",
+      "documents": [
+        {"doc_type": "claim_form", "filename": "claim_form.pdf", "fields": {"name": "Priya Sharma", "date": "2026-08-28"}},
+        {"doc_type": "id_proof", "filename": "aadhaar.pdf", "fields": {"name": "Priya Sharma"}},
+        {"doc_type": "hospital_bill", "filename": "final_bill.pdf", "fields": {"name": "Priya Sharma", "amount": 85400, "date": "2026-08-24"}},
+        {"doc_type": "discharge_summary", "filename": "discharge.pdf", "fields": {"name": "Priya Sharma", "date": "2026-08-24"}}
+      ]
+    }
+  },
+  {
+    "title": "2. Missing required documents",
+    "expected": "reject",
+    "claim": {
+      "claim_id": "CLM-002", "policy_id": "MTR-2002", "claimant_name": "Karan Patel", "claim_type": "motor",
+      "incident_type": "accident", "incident_date": "2026-09-02", "report_date": "2026-09-05",
+      "claimed_amount": 135000,
+      "description": "Rear-ended at a traffic signal on the Western Express Highway; bumper, boot and tail-lamps damaged.",
+      "documents": [
+        {"doc_type": "claim_form", "filename": "claim_form.pdf", "fields": {"name": "Karan Patel", "date": "2026-09-05"}},
+        {"doc_type": "driving_license", "filename": "dl.pdf", "fields": {"name": "Karan Patel", "expiry_date": "2031-05-10"}},
+        {"doc_type": "vehicle_rc", "filename": "rc.pdf", "fields": {"name": "Karan Patel"}}
+      ]
+    }
+  },
+  {
+    "title": "3. Suspicious claim amount",
+    "expected": "human_review",
+    "claim": {
+      "claim_id": "CLM-003", "policy_id": "HLT-1003", "claimant_name": "Vikram Singh", "claim_type": "health",
+      "incident_type": "hospitalisation", "incident_date": "2026-09-14", "report_date": "2026-09-16",
+      "claimed_amount": 480000,
+      "description": "Emergency admission at a friend's private clinic for severe abdominal pain. Paid in cash; original receipts were lost, duplicates attached.",
+      "documents": [
+        {"doc_type": "claim_form", "filename": "claim_form.pdf", "fields": {"name": "Vikram Singh", "date": "2026-09-16"}},
+        {"doc_type": "id_proof", "filename": "pan.pdf", "fields": {"name": "Vikram Singh"}},
+        {"doc_type": "hospital_bill", "filename": "duplicate_bill.pdf", "fields": {"name": "Vikram Singh", "amount": 480000, "date": "2026-09-15"}},
+        {"doc_type": "discharge_summary", "filename": "discharge.pdf", "fields": {"name": "Vikram Singh", "date": "2026-09-15"}}
+      ]
+    }
+  },
+  {
+    "title": "4. Expired policy",
+    "expected": "reject",
+    "claim": {
+      "claim_id": "CLM-004", "policy_id": "HLT-1004", "claimant_name": "Sunita Reddy", "claim_type": "health",
+      "incident_type": "illness", "incident_date": "2026-08-10", "report_date": "2026-08-18",
+      "claimed_amount": 62000,
+      "description": "Hospitalised for 3 days with pneumonia at Apollo Clinic.",
+      "documents": [
+        {"doc_type": "claim_form", "filename": "claim_form.pdf", "fields": {"name": "Sunita Reddy", "date": "2026-08-18"}},
+        {"doc_type": "id_proof", "filename": "aadhaar.pdf", "fields": {"name": "Sunita Reddy"}},
+        {"doc_type": "hospital_bill", "filename": "bill.pdf", "fields": {"name": "Sunita Reddy", "amount": 62000, "date": "2026-08-13"}},
+        {"doc_type": "discharge_summary", "filename": "discharge.pdf", "fields": {"name": "Sunita Reddy", "date": "2026-08-13"}}
+      ]
+    }
+  },
+  {
+    "title": "5. High-value claim with valid documents",
+    "expected": "human_review",
+    "claim": {
+      "claim_id": "CLM-005", "policy_id": "PRP-3005", "claimant_name": "Deepak Joshi", "claim_type": "property",
+      "incident_type": "fire", "incident_date": "2026-09-10", "report_date": "2026-09-12",
+      "claimed_amount": 1850000,
+      "description": "Electrical short-circuit caused a fire in the ground-floor warehouse; stock and fixtures destroyed. Fire brigade attended.",
+      "documents": [
+        {"doc_type": "claim_form", "filename": "claim_form.pdf", "fields": {"name": "Deepak Joshi", "date": "2026-09-12"}},
+        {"doc_type": "id_proof", "filename": "aadhaar.pdf", "fields": {"name": "Deepak Joshi"}},
+        {"doc_type": "ownership_proof", "filename": "sale_deed.pdf", "fields": {"name": "Deepak Joshi"}},
+        {"doc_type": "damage_assessment", "filename": "surveyor_report.pdf", "fields": {"name": "Deepak Joshi", "amount": 1850000, "date": "2026-09-11"}},
+        {"doc_type": "incident_report", "filename": "fire_brigade_report.pdf", "fields": {"name": "Deepak Joshi", "date": "2026-09-10"}}
+      ]
+    }
+  },
+  {
+    "title": "6. (Bonus) Excluded peril found in the narrative",
+    "expected": "reject",
+    "claim": {
+      "claim_id": "CLM-006", "policy_id": "MTR-2006", "claimant_name": "Neha Kapoor", "claim_type": "motor",
+      "incident_type": "accident", "incident_date": "2026-09-06", "report_date": "2026-09-07",
+      "claimed_amount": 210000,
+      "description": "Car hit a divider late at night. Police report notes the driver was found to be drunk driving (breath test positive).",
+      "documents": [
+        {"doc_type": "claim_form", "filename": "claim_form.pdf", "fields": {"name": "Neha Kapoor", "date": "2026-09-07"}},
+        {"doc_type": "driving_license", "filename": "dl.pdf", "fields": {"name": "Neha Kapoor", "expiry_date": "2030-02-01"}},
+        {"doc_type": "vehicle_rc", "filename": "rc.pdf", "fields": {"name": "Neha Kapoor"}},
+        {"doc_type": "repair_estimate", "filename": "estimate.pdf", "fields": {"name": "Neha Kapoor", "amount": 210000, "date": "2026-09-07"}},
+        {"doc_type": "police_report", "filename": "fir.pdf", "fields": {"name": "Neha Kapoor", "date": "2026-09-06"}}
+      ]
+    }
+  }
+]
